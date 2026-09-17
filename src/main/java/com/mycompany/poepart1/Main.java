@@ -24,13 +24,13 @@ public class Main {
         System.out.println("Enter your Last Name: ");    // capturin the users last name
         String lastName = scanner.nextLine();
 
-        System.out.println("Enter your Usernme: ");    // capturin the users last name
+        System.out.println("Enter your Usernme: ");    // capturin the users username
         String username = scanner.nextLine();
 
-        System.out.println("Enter your Password: ");    // capturin the users last name
+        System.out.println("Enter your Password: ");    // capturin the users password
         String password = scanner.nextLine();
 
-        System.out.println("Enter your Cell Phone Number: ");    // capturin the users last name
+        System.out.println("Enter your Cell Phone Number: ");    // capturin the users cell phone number 
         String cellPhoneNumber = scanner.nextLine();
 
         Login obj = new Login(firstName, lastName, username, password, cellPhoneNumber);
