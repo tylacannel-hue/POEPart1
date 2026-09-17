@@ -25,39 +25,7 @@ public class Login {
 
     }
 
-    /* 
-    public String getFirstName(){
-        return firstName;
-    }
-    public String setFirstName(String firstName){
-        this.firstName = firstName;
-    }
-    public String getLastName(){
-        return lastName;
-    }
-    public String setlastName(String lastName){
-        this.lastName = lastName;
-    }
-    public String getusername(){
-        return username;
-    }
-    public String setusername(String username){
-        this.username = username;
-    }
-    public String getpassword(){
-        return password;
-    }
-    public String setpassword(String password){
-        this.password = password;
-    }
-    public String getCellPhoneNumber(){
-        return cellPhoneNumber;
-    }
-    public String setcellPhoneNumber(String cellPhoneNumber){
-        this.cellPhoneNumber = cellPhoneNumber;
-    }
     
-     */
 
     
 
