@@ -24,11 +24,7 @@ public class Login {
         this.cellPhoneNumber = cellPhoneNumber;
 
     }
-
     
-
-    
-
     public boolean checkUserName(String username) {
         boolean CU;
 
