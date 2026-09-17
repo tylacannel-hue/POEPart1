@@ -44,7 +44,7 @@ public class Login {
     }
 
     public boolean checkPasswordComplexity(String password) {
-        String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$";
+        String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$"; // (Stack Overflow, n.d.)
         boolean CP;
 
         if (password.matches(passwordRegex)) {
@@ -59,7 +59,7 @@ public class Login {
 
     public boolean checkCellPhoneNumber(String cellPhoneNumber) {
 
-        String cellNumberRegex = "\\+\\d{1,3}\\d{8,10}$";
+        String cellNumberRegex = "\\+\\d{1,3}\\d{8,10}$";       //
         boolean CN;
 
         if (cellPhoneNumber.matches(cellNumberRegex)) {
@@ -107,3 +107,11 @@ public class Login {
         }
     }
 }
+// References
+
+ //reference for Cell Phone Regex:
+ // Standard E.164 International Phone Number Format Pattern:
+ // Sourced from OWASP Regex Repository / Standard Java Pattern matching for international numbers.
+// Farrell, J. (2022). Java Programming. 10th ed. S.L.: Cengage Learning.
+// GeeksforGeeks (2021). Java Program to Check For a Valid Mobile Number. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/java/java-program-to-check-for-a-valid-mobile-number/ [Accessed 17 Sept. 2026].
+// Stack Overflow. (n.d.). javascript - Regex for password must contain at least eight characters, at least one number and both lower and uppercase letters and special characters. [online] Available at: https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a [Accessed 16 Sept. 2026].
