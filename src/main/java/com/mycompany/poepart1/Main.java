@@ -42,10 +42,10 @@ public class Main {
         System.out.println("ACCOUNT LOGIN");
         System.out.println("=================================================");
 
-        System.out.println("Enter your Username: ");
+        System.out.println("Please Enter your Username: ");
         String loginUser = scanner.nextLine();
 
-        System.out.println("Enter your Password: ");
+        System.out.println("Please Enter your Password: ");
         String loginPass = scanner.nextLine();
         boolean isLoginSuccess;
         if (username.equals(loginUser) && password.equals(loginPass)) {

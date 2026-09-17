@@ -59,7 +59,7 @@ public class Login {
 
     public boolean checkCellPhoneNumber(String cellPhoneNumber) {
 
-        String cellNumberRegex = "\\+\\d{1,3}\\d{8,10}$";       //
+        String cellNumberRegex = "\\+\\d{1,3}\\d{8,10}$";       //(Stack Overflow, n.d.)
         boolean CN;
 
         if (cellPhoneNumber.matches(cellNumberRegex)) {
