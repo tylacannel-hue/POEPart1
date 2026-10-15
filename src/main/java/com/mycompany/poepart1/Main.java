@@ -4,7 +4,8 @@
 package com.mycompany.poepart1;
 
 import java.util.Scanner;
-
+import java.util.List;
+import java.util.ArrayList;
 /**
  *
  * @author Student
@@ -59,6 +60,33 @@ public class Main {
         }
 
         scanner.close();
+    }
+ 
+     //part two
+    {
+        System.out.println("\n===========================================");
+        System.out.println("WELCOME TO QUICKCHAT");
+        System.out.println("\n===========================================");
+        
+            List<message> sentMessageList = new ArrayList<>();
+            List<String> storedJsonMessageList = new ArrayList<>();
+            
+            boolean exitChat = false;
+            while (!exitChat){
+                System.out.println("/n---QUICKCHAT MAIN MENU---");
+                    System.out.println("1. Send Messages");
+                    System.out.println("2. Display Total Sent Messages and Details");
+                    System.out.println("3. Quit QuickChat");
+                    System.out.println("Choose an option (1-3: ");
+                    
+               int option = 0;
+               try{
+                   option = Integer.parseInt(scanner.nextLine());
+               }catch ()
+               
+                
+            }
+        
     }
 
 }
