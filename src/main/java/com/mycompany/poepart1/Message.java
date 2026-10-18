@@ -37,7 +37,7 @@ public class Message {
         this.messageID = messageID;
         this.numMessagesSent = numMessagesSent;
         this.messageText = messageText;
-        this.messageHash = createMessageHash;
+        this.messageHash = createMessageHash();
    }
    
    public static String createMessageID(){
@@ -54,7 +54,7 @@ public class Message {
        
    }
    
-   public static boolean isValidCell (String Cell){
+   public static boolean isValidCell (String cell){
        String cellNumberRegex = "\\+\\d{1,3}\\d{8,10}$"; 
        return cell != null && cell.matches(cellNumberRegex);
    }
