@@ -62,9 +62,9 @@ public class Message {
    
    public String checkRecipientCell(){
        if (isValidCell(recipient)){
-           return "Cell phone number is captured successfully.";           
+           return "Cell phone number successfully captured.";           
        }
-       return "Cell phone number is incorrectly formatted or does not contain an international code. Please correct this and try again.";
+       return "Cell phone number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
    }
    
    public static String checkMessageLength(String text){
@@ -72,7 +72,7 @@ public class Message {
            return "Message ready to send.";
        }
        int over =text.length()-250;
-       return "messge exceeds 250 characters by "+ over + ",please reduce the message.";
+       return "Message exceeds 250 characters by "+ over + ", please reduce the size.";
    }
    
    public String createMessageHash(){
@@ -101,10 +101,10 @@ public class Message {
             case 1 -> {
                 totalMessagesSent++; //(GeeksforGeeks, 2019)
                 sentMessages += getMessageDetails() + "\n"; //(GeeksforGeeks, 2019) this reference was used to find an alternative way to do these lines
-                return "Messge successfully sent";
+                return "Message successfully sent";
             }
             case 2 -> {
-                return "press 0 to delete the message";
+                return "Press 0 to delete the message";
             }
             case 3 -> {
                 storeMessage();
