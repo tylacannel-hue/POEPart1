@@ -126,12 +126,12 @@ public class Message {
     }
     
     public void storeMessage(){
-        String entry = "     { \n"
-                +" \"messageID\": \"" + escape(messageID)+"\",\n"
-                +" \"messageHash\": \"" + escape(messageHash)+"\",\n"
-                +" \"recipient\": \"" + escape(recipient)+"\",\n"
-                +" \"message\": \"" + escape(messageText)+"\"\n"
-                +"    }";
+        String entry = "  {\n" 
+                + "   \"messageID\": \"" + escape(messageID)+"\",\n"
+                + "   \"messageHash\": \"" + escape(messageHash)+"\",\n"
+                + "   \"recipient\": \"" + escape(recipient)+"\",\n"
+                + "   \"message\": \"" + escape(messageText)+"\"\n"
+                + " }";
     
     if (storedJson.isEmpty()){
         storedJson = entry;
