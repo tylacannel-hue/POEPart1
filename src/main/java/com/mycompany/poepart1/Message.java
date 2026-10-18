@@ -164,4 +164,5 @@ public class Message {
         sentMessages = "" ;
         storedJson = "";
     }
+    
 }

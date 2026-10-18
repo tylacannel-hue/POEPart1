@@ -90,7 +90,7 @@ public class Login {
             System.out.println("You have entered your username and password correctly");
         } else {
             LU = false;
-            System.out.println("Ypu have not entered your username or password correctly");
+            System.out.println("You have not entered your username or password correctly");
         }
       return LU;
     }
