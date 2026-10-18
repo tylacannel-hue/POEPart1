@@ -69,7 +69,7 @@ public class Main {
         System.out.println("WELCOME TO QUICKCHAT");
         System.out.println("\n===========================================");
         
-            int totalToEnter = readInt(scanner, "How many messages do you wish to send or enter?",1,Integer.MAX_VALUE);
+            int totalToEnter = readInt(scanner, "How many messages do you wish to enter?",1,Integer.MAX_VALUE);
             int messagesEntered = 0;
             
             boolean exitChat = false;
@@ -81,18 +81,18 @@ public class Main {
                     System.out.println("3. Quit QuickChat");
                     
                     
-            int option = readInt(scanner, "Option: ", 1,3);
+            int option = readInt(scanner, "Option: ", 1,3); 
             
                
                switch (option){
-                   case 1 -> { 
+                   case 1:
                        if (messagesEntered >= totalToEnter){
                            System.out.println("You have already entered all" + totalToEnter+ "message(s).");
                            break;
                        }
                        for (int i = messagesEntered; i < totalToEnter; i++) {
                            System.out.println("\n---Message" + (i+1) + "of" + totalToEnter + "---");
-                       }
+                       
                        String recipient;
                        while (true){
                            System.out.println("Enter the recipient cell phone number (withthe international code) ");
@@ -134,17 +134,19 @@ public class Main {
                        messagesEntered++;
                 }
                        
-               }
+               
                 System.out.println("\nTotal number of messages sent: " + Message.returnTotalMessages());
                 break;
-                    case 2:
+               
+                  case 2 :{ 
                         System.out.println("Coming Soon.");
                         break;
-                    case 3:
+            }
+                    case 3 : 
                         System.out.println("Goodbye.");
-                        exitChate = true;
+                        exitChat = true;
                         break;
-                    
+            }
              
             }
     }
@@ -163,7 +165,7 @@ public class Main {
                 }
             }catch (NumberFormatException e) {
                 }
-             System.out.println("Invalid input, please try agin" + (min == max ? "(enter " + min +").": "."));   
+             System.out.println("Invalid input, please try agin");   
         }
     }
 }
