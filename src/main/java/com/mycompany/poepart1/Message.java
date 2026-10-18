@@ -17,7 +17,7 @@ public class Message {
     private static int totalMessagesSent=0;
     private static String sentMessages = "";
     private static String storedJson ="";
-    private static final String Json_File= "messages.json";
+    private static final String JSON_FILE= "messages.json";
 
     static String returnTotalMessages() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -138,10 +138,10 @@ public class Message {
    }else {
         storedJson += ",\n" + entry;
     }
-    try (FileWriter writer = new FileWriter(Json_File)){
+    try (FileWriter writer = new FileWriter(JSON_FILE)){
         writer.write("[\n" + storedJson + "\n");       
     }catch (IOException e) {
-        System.out.println("Could not write to " + Json_File + ":" + e.getMessage());
+        System.out.println("Could not write to " + JSON_FILE + ":" + e.getMessage());
     }
     }
     private static String escape (String s) {
