@@ -74,8 +74,8 @@ public class Main {
             
             boolean exitChat = false;
             while (!exitChat){
-                System.out.println("/n---QUICKCHAT MAIN MENU---");
-                    System.out.println("Choose an option (1-3: ");
+                System.out.println("\n---QUICKCHAT MAIN MENU---");
+                    System.out.println("Choose an option (1-3:) ");
                     System.out.println("1. Send Messages");
                     System.out.println("2. Display Total Sent Messages and Details");
                     System.out.println("3. Quit QuickChat");

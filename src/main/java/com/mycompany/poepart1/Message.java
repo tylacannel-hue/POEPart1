@@ -19,8 +19,8 @@ public class Message {
     private static String storedJson ="";
     private static final String JSON_FILE= "messages.json";
 
-    static String returnTotalMessages() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public static int returnTotalMessages(){
+        return totalMessagesSent;
     }
     
    private String messageID;
@@ -36,6 +36,7 @@ public class Message {
    public Message(String messageID,int numMessagesSent, String recipient, String messageText){
         this.messageID = messageID;
         this.numMessagesSent = numMessagesSent;
+        this.recipient = recipient;
         this.messageText = messageText;
         this.messageHash = createMessageHash();
    }
