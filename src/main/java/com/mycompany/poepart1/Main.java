@@ -95,7 +95,7 @@ public class Main {
                        
                        String recipient;
                        while (true){
-                           System.out.println("Enter the recipient cell phone number (withthe international code) ");
+                           System.out.println("Enter the recipient cell phone number (with the international code) ");
                            recipient = scanner.nextLine().trim();
                            if (Message.isValidCell(recipient)){
                                System.out.println("Cell phone number captured successfuly");
@@ -149,6 +149,7 @@ public class Main {
             }
              
             }
+            scanner.close();
     }
     
     
@@ -165,9 +166,11 @@ public class Main {
                 }
             }catch (NumberFormatException e) {
                 }
-             System.out.println("Invalid input, please try agin");   
+                 System.out.println("Invalid input, please try again" + (min == max ? " (enter " + min + ")." : "."));
         }
     }
+    
+    
 }
 
                

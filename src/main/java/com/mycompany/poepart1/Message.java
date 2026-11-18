@@ -167,3 +167,12 @@ public class Message {
     }
     
 }
+
+
+ //reference for Login & Message class
+ // Standard E.164 International Phone Number Format Pattern:
+ // Sourced from OWASP Regex Repository / Standard Java Pattern matching for international numbers.
+// Farrell, J. (2022). Java Programming. 10th ed. S.L.: Cengage Learning.
+// GeeksforGeeks (2019). Java assignment operators with examples. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/java/java-assignment-operator-with-examples/ [Accessed 18 October. 2026].
+// GeeksforGeeks (2021). Java Program to Check For a Valid Mobile Number. [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/java/java-program-to-check-for-a-valid-mobile-number/ [Accessed 17 October. 2026].
+// Stack Overflow. (n.d.). javascript - Regex for password must contain at least eight characters, at least one number and both lower and uppercase letters and special characters. [online] Available at: https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a [Accessed 18 October. 2026].
