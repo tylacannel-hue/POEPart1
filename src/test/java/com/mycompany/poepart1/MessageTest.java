@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
  */
 public class MessageTest {
 
-    private static final String MSG1 = "Hi, can you join us for dinner tonight?";
-    private static final String MSG2 = "Hi, did you receive the payment?";
+    private static final String MSG1 = "Hi Mike, can you join us for dinner tonight?";
+    private static final String MSG2 = "Hi James, did you receive the payment?";
 
     @BeforeEach
     public void setUp() {

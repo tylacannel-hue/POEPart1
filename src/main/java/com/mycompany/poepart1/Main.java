@@ -139,7 +139,7 @@ public class Main {
                         messagesEntered++;
                     }
 
-                    // Total accumulated and displayed once all messages are done
+                    // Total gathered and displayed once all messages are done
                     System.out.println("\nTotal number of messages sent: " + Message.returnTotalMessages());
                     break;
 
@@ -170,7 +170,7 @@ public class Main {
                     return value;
                 }
             } catch (NumberFormatException e) {
-                // fall through
+               
             }
             System.out.println("Invalid input, please try again" + (min == max ? " (enter " + min + ")." : "."));
         }
