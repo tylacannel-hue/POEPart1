@@ -167,8 +167,166 @@ public class Message {
         sentMessages = "";
         storedJson = "";
     }
+     // ===================== PART 3: ARRAYS =====================
+    // Maximum number of items each array can hold (arrays have a fixed size)
+    private static final int MAX_MESSAGES = 100;
+
+    // These four arrays are PARALLEL arrays: index 0 in each array belongs to the
+    // same sent message, index 1 to the next sent message, and so on.
+    private static String[] sentMessageArray = new String[MAX_MESSAGES];   // Sent Message array
+    private static String[] sentRecipientArray = new String[MAX_MESSAGES]; // recipient of each sent message
+    private static String[] messageHashArray = new String[MAX_MESSAGES];   // Message Hash array
+    private static String[] messageIDArray = new String[MAX_MESSAGES];     // Message ID array
+
+    private static String[] disregardedMessageArray = new String[MAX_MESSAGES]; // Disregarded Messages array
+    private static String[] storedMessageArray = new String[MAX_MESSAGES];      // Stored Messages array (filled from the JSON file)
+
+    // Counters: how many items are currently in each array
+    private static int sentCount = 0;
+    private static int disregardedCount = 0;
+    private static int storedCount = 0;
+    
+    // ===================== PART 3: ARRAY METHODS =====================
+
+    // Adds this message to the sent arrays. All four arrays use the SAME index (parallel arrays).
+    public void addToSentArrays(){
+        if (sentCount < MAX_MESSAGES){
+            sentMessageArray[sentCount] = messageText;
+            sentRecipientArray[sentCount] = recipient;
+            messageHashArray[sentCount] = messageHash;
+            messageIDArray[sentCount] = messageID;
+            sentCount++; // move to the next empty position
+        }
+    }
+
+    // Adds this message to the disregarded messages array
+    public void addToDisregardedArray(){
+        if (disregardedCount < MAX_MESSAGES){
+            disregardedMessageArray[disregardedCount] = messageText;
+            disregardedCount++;
+        }
+    }
+
+    // Reads the JSON file line by line and copies every "message" value into the stored messages array.
+    // Scanner and File are written out in full (java.util / java.io) so no new import is needed.
+    // Reference: add your source here (e.g. the website or the textbook chapter on reading files)
+    public static void readJsonIntoArray(){
+        storedCount = 0; // start from empty so messages are not added twice
+        try {
+            java.util.Scanner fileScanner = new java.util.Scanner(new java.io.File(JSON_FILE));
+            while (fileScanner.hasNextLine()){
+                String line = fileScanner.nextLine();
+                // only lines that hold the message text look like:   "message": "text here"
+                if (line.contains("\"message\":") && storedCount < MAX_MESSAGES){
+                    int start = line.indexOf(": \"") + 3;   // position just after the opening quote
+                    int end = line.lastIndexOf("\"");       // position of the closing quote
+                    String text = line.substring(start, end);
+                    // undo the escaping that storeMessage() did
+                    text = text.replace("\\\"", "\"").replace("\\\\", "\\");
+                    storedMessageArray[storedCount] = text;
+                    storedCount++;
+                }
+            }
+            fileScanner.close();
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println("No stored messages file found yet.");
+        }
+    }
+
+    // Returns the stored messages (the ones read from the JSON file) as text to display
+    public static String displayStoredMessages(){
+        if (storedCount == 0){
+            return "There are no stored messages.";
+        }
+        String output = "";
+        for (int i = 0; i < storedCount; i++){
+            output += (i + 1) + ". " + storedMessageArray[i] + "\n";
+        }
+        return output;
+    }
+
+    // Finds the longest sent message by looping through the array and remembering the biggest length
+    public static String displayLongestMessage(){
+        if (sentCount == 0){
+            return "There are no sent messages.";
+        }
+        int longestIndex = 0; // assume the first message is the longest
+        for (int i = 1; i < sentCount; i++){
+            if (sentMessageArray[i].length() > sentMessageArray[longestIndex].length()){
+                longestIndex = i; // found a longer one
+            }
+        }
+        return "Longest message: " + sentMessageArray[longestIndex];
+    }
+
+    // Searches the parallel arrays for every message sent to the recipient the user typed in
+    public static String searchByRecipient(String searchRecipient){
+        String output = "";
+        for (int i = 0; i < sentCount; i++){
+            if (sentRecipientArray[i].equals(searchRecipient)){
+                output += sentMessageArray[i] + "\n";
+            }
+        }
+        if (output.isEmpty()){
+            return "No messages found for " + searchRecipient;
+        }
+        return output;
+    }
+
+    // Searches the hash array for the hash the user typed in and deletes that message.
+    // Because the arrays are parallel, the item must be removed from ALL of them.
+    public static String deleteByHash(String searchHash){
+        int foundIndex = -1; // -1 means "not found yet"
+        for (int i = 0; i < sentCount; i++){
+            if (messageHashArray[i].equals(searchHash.toUpperCase())){
+                foundIndex = i;
+                break;
+            }
+        }
+        if (foundIndex == -1){
+            return "Message hash not found.";
+        }
+        String deletedText = sentMessageArray[foundIndex];
+        // shift every item after the deleted one back by one position
+        for (int i = foundIndex; i < sentCount - 1; i++){
+            sentMessageArray[i] = sentMessageArray[i + 1];
+            sentRecipientArray[i] = sentRecipientArray[i + 1];
+            messageHashArray[i] = messageHashArray[i + 1];
+            messageIDArray[i] = messageIDArray[i + 1];
+        }
+        sentCount--; // one less item in the arrays
+        return "Message \"" + deletedText + "\" successfully deleted.";
+    }
+
+    // Report of all sent messages: hash, ID, recipient and message
+    public static String displayReport(){
+        if (sentCount == 0){
+            return "There are no sent messages.";
+        }
+        String output = "";
+        for (int i = 0; i < sentCount; i++){
+            output += "Message " + (i + 1)
+                    + "\nMessage Hash: " + messageHashArray[i]
+                    + "\nMessage ID: " + messageIDArray[i]
+                    + "\nRecipient: " + sentRecipientArray[i]
+                    + "\nMessage: " + sentMessageArray[i] + "\n\n";
+        }
+        return output;
+    }
+
+    public static void resetAll(){
+        totalMessagesSent = 0;
+        sentMessages = "" ;
+        storedJson = "";
+        sentCount = 0;          // Part 3: empty the arrays
+        disregardedCount = 0;
+        storedCount = 0;
+    }
     
 }
+
+    
+
 
 
  //reference for Login & Message class
